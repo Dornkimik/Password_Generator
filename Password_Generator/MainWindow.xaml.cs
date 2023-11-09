@@ -29,8 +29,8 @@ namespace Password_Generator
 
         public MainWindow()
         {
-            InitializeComponent();
             InitializeLetters();
+            InitializeComponent();
         }
 
         private static void InitializeLetters()
@@ -90,6 +90,9 @@ namespace Password_Generator
             {
                 Length_Number.Text = Length_Slider.Value.ToString();
             }
+
+            currentPassword = GeneratePassword();
+            PasswordText.Text = currentPassword;
         }
     }
 }
