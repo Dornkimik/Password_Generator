@@ -66,8 +66,6 @@ namespace Password_Generator
                 password += (char)allLetters[random.Next(0, allLetters.Count)];
             }
 
-            Console.WriteLine(password);
-
             return password;
         }
 
