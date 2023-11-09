@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid HorizontalAlignment="Center" Height="275" Margin="0,66,0,0" VerticalAlignment="Top" Width="264">
-            <Button Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="52" Click="Button_Click" Margin="75,223,0,0"/>
+            <Button Content="Change" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="52" Click="Button_Click" Margin="75,223,0,0"/>
             <TextBlock x:Name="PasswordText" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="79" Width="264" TextAlignment="Center" FontSize="15" Background="#FFE2E2E2" Margin="0,81,0,0"/>
             <Slider x:Name="Length_Slider" HorizontalAlignment="Left" Width="127" Maximum="100" Minimum="1" VerticalAlignment="Top" Margin="93,190,0,0" ValueChanged="Length_Slider_ValueChanged" IsSnapToTickEnabled="True" Value="1"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="35,191,0,0"><Run Language="de-de" Text="Length: "/></TextBlock>
