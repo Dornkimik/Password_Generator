@@ -11,11 +11,13 @@
 
 ## A password in a few clicks
 
-Choose a length, generate a fresh password, and copy it when you’re ready. Passwords are created on your device with a cryptographically secure random generator. The app has no account, network service, or password history.
+Choose a length and the character groups to include, generate a fresh password, and copy it when you’re ready. Passwords are created on your device with a cryptographically secure random generator. The app has no account, network service, or password history.
 
 ### Features
 
-- **1–100 characters** from uppercase letters, lowercase letters, and digits
+- **4–100 characters** from configurable uppercase letters, lowercase letters, digits, and symbols
+- **Required character groups**: at least one character from each selected group
+- **Avoid ambiguous characters** such as `0`, `O`, `l`, `1`, and `I`
 - **Secure randomness** from .NET’s cryptographic random number generator
 - **One-click copy** to your system clipboard
 - **One shared app** with the same dark interface on Windows and Linux
