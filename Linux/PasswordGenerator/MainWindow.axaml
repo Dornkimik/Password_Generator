@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PasswordGenerator.MainWindow"
+        Title="Password Generator"
+        Width="440"
+        Height="380"
+        MinWidth="390"
+        MinHeight="350"
+        WindowStartupLocation="CenterScreen">
+  <Window.Styles>
+    <Style Selector="TextBlock.muted">
+      <Setter Property="Foreground" Value="#A1A1AA" />
+    </Style>
+  </Window.Styles>
+
+  <Grid RowDefinitions="Auto,*,Auto" Margin="28">
+    <StackPanel Spacing="6">
+      <TextBlock Text="PASSWORD GENERATOR"
+                 FontSize="12"
+                 FontWeight="Bold"
+                 Foreground="#F97316" />
+      <TextBlock Text="Create a strong password"
+                 FontSize="24"
+                 FontWeight="SemiBold" />
+      <TextBlock Classes="muted"
+                 Text="Random letters and numbers, generated on your device." />
+    </StackPanel>
+
+    <StackPanel Grid.Row="1" VerticalAlignment="Center" Spacing="16">
+      <Border Background="#27272A" CornerRadius="10" Padding="16">
+        <TextBlock x:Name="PasswordText"
+                   Text=""
+                   FontFamily="monospace"
+                   FontSize="18"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center" />
+      </Border>
+
+      <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+        <TextBlock Text="Length" VerticalAlignment="Center" />
+        <TextBlock x:Name="LengthValue"
+                   Grid.Column="1"
+                   Text="16"
+                   FontWeight="Bold"
+                   Foreground="#F97316" />
+      </Grid>
+      <Slider x:Name="LengthSlider"
+              Minimum="1"
+              Maximum="100"
+              Value="16"
+              TickFrequency="1"
+              IsSnapToTickEnabled="True"
+              ValueChanged="OnLengthChanged" />
+      <TextBlock x:Name="StatusText"
+                 Classes="muted"
+                 MinHeight="18"
+                 HorizontalAlignment="Center" />
+    </StackPanel>
+
+    <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="10">
+      <Button Content="Generate new password"
+              Click="OnGenerateClicked"
+              HorizontalContentAlignment="Center"
+              Padding="12,10" />
+      <Button Grid.Column="1"
+              Content="Copy"
+              Click="OnCopyClicked"
+              Padding="18,10" />
+    </Grid>
+  </Grid>
+</Window>
