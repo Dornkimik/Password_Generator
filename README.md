@@ -1,71 +1,65 @@
-<div align="center">
-  <img src="assets/password-generator-preview.svg" alt="Password Generator app preview" width="760">
-  <h1>Password Generator</h1>
-  <p>A small, private password generator for Windows and Linux.</p>
-  <p>
-    <img alt="Platforms: Windows and Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-262626?style=flat-square">
-    <img alt=".NET 10" src="https://img.shields.io/badge/.NET-10-512BD4?style=flat-square&logo=dotnet&logoColor=white">
-    <img alt="Avalonia UI" src="https://img.shields.io/badge/UI-Avalonia-8A2BE2?style=flat-square">
-  </p>
-</div>
+# Password Generator
 
-## A password in a few clicks
+A desktop password generator for Windows and Linux. Choose a password length and the character types to include, then copy the result when you’re ready.
 
-Choose a length and the character groups to include, generate a fresh password, and copy it when you’re ready. Passwords are created on your device with a cryptographically secure random generator. The app has no account, network service, or password history.
+![Password Generator application preview](assets/password-generator-preview.svg)
 
-### Features
+## Features
 
-- **4–100 characters** from configurable uppercase letters, lowercase letters, digits, and symbols
-- **Required character groups**: at least one character from each selected group
-- **Avoid ambiguous characters** such as `0`, `O`, `l`, `1`, and `I`
-- **Secure randomness** from .NET’s cryptographic random number generator
-- **One-click copy** to your system clipboard
-- **One shared app** with the same dark interface on Windows and Linux
-- **No password storage or transmission**; copying happens only when you press **Copy**
+- Generate passwords from 4 to 100 characters.
+- Choose uppercase letters, lowercase letters, numbers, and symbols independently.
+- Include at least one character from every selected group.
+- Optionally exclude characters that can be easy to confuse, such as `0`, `O`, `1`, `l`, and `I`.
+- Use .NET’s cryptographic random number generator.
 
-## Run it
+## Privacy and security
 
-You’ll need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
+Password generation happens locally in the app. The app does not save generated passwords or send them to a server. A password is placed on the system clipboard only when you select **Copy**. Clipboard contents may be accessible to other applications running on your computer.
 
-### Linux (Omarchy / Arch)
+## Run from source
+
+Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0), clone this repository, and run the app from its directory:
 
 ```sh
-omarchy pkg add dotnet-sdk
-./scripts/install-linux.sh
-```
-
-The install script publishes a self-contained Linux x64 app and adds **Password Generator** to your application launcher.
-
-### Windows
-
-Run from the repository folder:
-
-```powershell
 dotnet run --project src/PasswordGenerator/PasswordGenerator.csproj
 ```
 
-To publish a standalone Windows x64 build, run:
-
-```powershell
-./scripts/publish-windows.ps1
-```
-
-The executable is written to `artifacts/windows-x64/PasswordGenerator.exe`.
-
-### Build from source
-
-The Avalonia project is in [`src/PasswordGenerator`](src/PasswordGenerator). Open [`Password_Generator.sln`](Password_Generator.sln) in Visual Studio or build it with the .NET CLI:
+To build the solution:
 
 ```sh
 dotnet build Password_Generator.sln
 ```
 
-## Security notes
+## Install
 
-Password generation uses `RandomNumberGenerator.GetInt32`, not a general-purpose pseudo-random generator. The app doesn’t save passwords or send them anywhere. Once copied, the password is held by the operating system clipboard, where other local apps may be able to read it.
+### Linux (x64)
 
-## Project history
+Install the .NET SDK for your distribution. On Omarchy, you can use:
 
-The original WPF implementation is kept in [`legacy/windows-wpf`](legacy/windows-wpf) for reference. The maintained Windows and Linux app is the shared Avalonia project.
+```sh
+omarchy pkg add dotnet-sdk
+```
 
-<p align="center"><sub>Made for a useful little utility that stays out of your way.</sub></p>
+Then run the install script from the repository directory:
+
+```sh
+./scripts/install-linux.sh
+```
+
+The script publishes a self-contained Linux x64 application to `~/.local/opt/password-generator` and adds it to your application launcher.
+
+### Windows (x64)
+
+From PowerShell in the repository directory, publish a standalone application:
+
+```powershell
+./scripts/publish-windows.ps1
+```
+
+The output is written to `artifacts/windows-x64/PasswordGenerator.exe`.
+
+## Project structure
+
+- `src/PasswordGenerator` — maintained cross-platform Avalonia application
+- `scripts` — Linux installation and Windows publishing scripts
+- `legacy/windows-wpf` — archived original WPF implementation
