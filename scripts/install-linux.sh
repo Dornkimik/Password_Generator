@@ -2,7 +2,8 @@
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-project="$script_dir/PasswordGenerator/PasswordGenerator.csproj"
+repo_root="$(cd "$script_dir/.." && pwd)"
+project="$repo_root/src/PasswordGenerator/PasswordGenerator.csproj"
 install_dir="$HOME/.local/opt/password-generator"
 applications_dir="$HOME/.local/share/applications"
 

@@ -1,13 +1,13 @@
-# Linux version
+# Linux install notes
 
-The Linux desktop app is written in C# with Avalonia. It runs as a self-contained x86-64 application and does not need the .NET runtime after installation.
+The maintained app is written in C# with Avalonia and runs on both Linux and Windows. The Linux install script publishes a self-contained x86-64 application, so the .NET runtime is not needed after installation.
 
 ## Install on Omarchy / Arch Linux
 
 Install the .NET SDK with `omarchy pkg add dotnet-sdk`, then run:
 
 ```sh
-./Linux/install.sh
+./scripts/install-linux.sh
 ```
 
 The app is installed in `~/.local/opt/password-generator` and appears in the desktop app launcher. Re-run the install script after pulling source changes to update it.
